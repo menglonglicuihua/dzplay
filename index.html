@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="gb2312">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/index.js" charset="utf-8"></script>
+</head>
+<body>
+	<div id="sence"></div>
+	<div id="start">
+		开始游戏
+		<!-- <img src="img/start.png" alt=""> -->
+	</div>
+	<div id="jixu">
+		继续游戏
+	</div>
+	<div id="end">
+		暂停游戏
+		<!-- <img src="img/end.png" alt=""> -->
+	</div>
+	<div class="smbox">
+	    <span class="shengming">生命：</span>
+	    <div class="leve">10</div>
+	</div>
+	<div class="fsbox">
+	    <span class="fenshu">分数：</span>
+	    <div class="score">0</div>
+	</div>
+</body>
+<script>
+	var sence=document.getElementById('sence');
+	var start=document.getElementById('start');
+	var end=document.getElementById('end');
+	var jixu=document.getElementById('jixu');
+	var game=new game(sence);
+	var flag=true;
+	start.onclick=function(){
+       game.play();
+       game.key();
+       start.style.display="none";
+       end.style.display="block";
+	}
+	jixu.onclick=function(){
+		if(flag){
+			game.play();
+			game.key();
+			flag=false;
+		}
+		jixu.style.display="none";
+	}
+    end.onclick=function(){
+    	jixu.style.display="block";
+    	game.Stop();
+    	flag=true;
+    }
+
+</script>
+</html>
